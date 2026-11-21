@@ -1,0 +1,9 @@
+{
+  "version": "1.1.0",
+  "notes": "初始版本",
+  "files": {
+    "vconv_gui.py":    {"url": "https://raw.githubusercontent.com/julian1002/video-converter/main/app/vconv_gui.py"},
+    "vconv_core.py":   {"url": "https://raw.githubusercontent.com/julian1002/video-converter/main/app/vconv_core.py"},
+    "vconv_update.py": {"url": "https://raw.githubusercontent.com/julian1002/video-converter/main/app/vconv_update.py"}
+  }
+}
