@@ -23,7 +23,7 @@ DEFAULT_CONFIG = {
     "gyan_version_url": "https://www.gyan.dev/ffmpeg/builds/release-version",
     "gyan_zip_url": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip",
     # 本工具的更新清單網址（JSON），例：放在自己的 GitHub / 公司內網
-    "app_manifest_url": "",
+    "app_manifest_url": "https://raw.githubusercontent.com/julian1002/video-converter/main/manifest.json",
 }
 SOURCES = {"btbn": "BtbN（GitHub，GPL 完整編碼器）", "gyan": "Gyan.dev（Essentials）"}
 
@@ -37,7 +37,9 @@ def load_config():
     cfg = dict(DEFAULT_CONFIG)
     try:
         with open(config_path(), encoding="utf-8-sig") as f:      # 相容 PowerShell 的 BOM
-            cfg.update(json.load(f))
+            for k, v in json.load(f).items():
+                if v not in ("", None) or k not in DEFAULT_CONFIG:
+                    cfg[k] = v
     except (OSError, ValueError):
         pass
     return cfg
